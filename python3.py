@@ -1,44 +1,43 @@
-# -*- coding: utf-8 -*-
 import json
 import sys, io
-from urllib.request import urlopen
+import urllib3
 
-enterId = 'Enter the playlist id (Enter ? to get help):'
-help = 'To get the id of the playlist, go to the page\
-of it and look at the address bar.\
- \nPlaylist id is the numbers after \
- "http://music.163.com/#/playlist?id="'
-errRetrive = 'No data retrived. \nPlease check the playlist id again.'
+#Export Your NetEase Cloud Music Playlist To Sporify (From NetEase Cloud Music To Sportify!!!)
+#将网易云音乐歌单导入Sportify
 
-while 1:
-	playlistId = input(enterId)
-
-	#change the playlistId variable 
-	if playlistId == '?':
-		print
-	urladd = "http://music.163.com/api/playlist/detail?id="\
-		+ str(playlistId) + "&updateTime=-1"
-	# Your code where you can use urlopen
-	with urlopen(urladd) as url:
-		response = url.read().decode('utf-8')
-	data = json.loads(response)
-
-	output = ""
-
-	if "result" not in data:
-		print(errRetrive)
-		print(help)
-		continue
-		
-	tracks = data["result"]["tracks"]
-	for track in tracks:
-		trackName = track["name"]
-		artist = track["artists"][0]["name"]
-		output += trackName + ' - ' + artist + '\n'
-	playlistName = data["result"]["name"]
+#Originally From: https://github.com/bjason/163MusicToSpotify
+#Modified By Alex Liu @ UChicago
 
 
-	with open(playlistName+'.txt', 'w',encoding='utf-8') as file:
-		file.write(output)
+#把下面这个ID替换成你要导入的歌单的ID
+playlistId = 120932413 #### Put Your 9 digits playlist id here
 
-	print('Success.\nCheck the directory of this file and find the .kgl file!')
+#The Result Will Be Saved To The Current Directory With Name: "YourPlayList.txt"
+#导出的歌单保存在当前目录，文件名：歌单名（可能是中文）.txt
+
+############ Don't Touch Anything Below ############
+############ 下面的别动 ############ 
+
+url = "http://music.163.com/api/playlist/detail?id=" + str(playlistId) + "&updateTime=-1" #Request Url From Netease
+
+http = urllib3.PoolManager()
+
+response = http.request('GET', url)
+
+data = json.loads(response.data)
+tracks = data["result"]["tracks"]
+
+# Your code where you can use urlopen
+tracks = data["result"]["tracks"]
+output = ""
+for track in tracks:
+	#print(len(tracks))
+	trackName = track["name"]
+	artist = track["artists"][0]["name"]
+	output += trackName + ' - ' + artist + '\n'
+playlistName = data["result"]["name"]
+
+with open(playlistName+'.txt', 'w',encoding='utf-8') as file:
+	file.write(output)
+
+print("Tracks Saved To Current Directory With Name: PlaylistName.lst")
