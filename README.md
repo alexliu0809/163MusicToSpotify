@@ -60,4 +60,9 @@ playlistId = 120932413 #### Put Your 9 digits playlist id here
 
 7. 复制txt内容， 打开 [this site](http://spotlistr.herokuapp.com/#/search/textbox). 粘贴然后生产sportify歌单。
 
+8. 大概能有7成多的成功率（取决于歌曲类型）。
+
 Note: the API 163 provided only enable me to retrive 1000 songs in your playlist. 
+
+### Last Update Jan. 23 2018
+### Contact: alexliu0809@uchicago.eduu
