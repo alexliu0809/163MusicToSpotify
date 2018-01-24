@@ -1,59 +1,63 @@
-# 163MusicSpider
-This tiny program enables you to download your favorite 163 music playlists.
+# NetEasePlaylistToSportify
+This tiny program enables you to download your favorite NetEase Cloud music playlists and export them to sportify.
+## Author
+Alex Liu
+### Originally From
+bjason
+## Usage
 To achieve this goal, following the steps as follow:
-1. Go get the id of your 163 playlist. to get it open the page of the playlist in a browser then copy the numbers behind "music.163.com/#/playlist?id=" in address bar. 
-2. Download the python script to your computer and make sure you have Python installed.
-3. Run the script by double clicking it. Be careful. You just need to run the script whose name is matched with your local Python version.
-4. Open the .txt file right next to the scirpt and select all then copy.
+1. Go get the id of your 163 playlist. to get it open the page of the playlist in a browser then copy the numbers behind "music.163.com/#/playlist?id=" in address bar. This should be 9 digits without any other characters.
+
+2. Download the python script to your computer.
+
+3. Make sure you have Python3 installed, which can be found/downloaded <a href="https://www.python.org/downloads/">here</a>
+
+4. Install the library urllib3. Normally you can do either one of the following:
+```shell
+pip install urllib3
+# Or
+python3 -m pip install urllib3
+```
+5. Open the file python3.py. Put Your playlist ID and replace the original playlist id there.
+```python
+#Replace 120932413 with your own playlist id.
+playlistId = 120932413 #### Put Your 9 digits playlist id here
+#Don't delete the "playlistId = " part
+```
+6. Open the .txt file named with "YourPlayListName.txt".
+
+7. Copy what's in the text file and open [this site](http://spotlistr.herokuapp.com/#/search/textbox). Paste the list and let it create sportify playlist for you
+
 Note: the API 163 provided only enable me to retrive 1000 songs in your playlist. 
 
+# 下载网易云歌单并导出到Sportify
+本程序将网易云歌单导出到Sportify. （重申，将网易云的歌单导入到Sportify，不是从Sportify到网易云）
+## Author
+Alex Liu
+### Originally From
+bjason
+## Usage
+以下步骤
+1. 打开网易云歌单.从地址栏"music.163.com/#/playlist?id=" 复制你的网易云歌单ID。这个ID应该是9位数（没有任何其他字符）。
 
+2. 下载Python3.py
 
-# 网易云音乐Spider
-程序旨在帮助你爬取到，网易云上你喜欢的歌单的所有的歌曲信息。
-步骤如下：
-1. 在浏览器打开你的网易云歌单，复制你的歌单网址中，位于 "music.163.com/#/playlist?id=" 后方的数字。
-2. 下载本脚本，并且确保本地机器已安装Python
-3. 双击脚本，运行脚本。你只需要运行和你的本地Python版本一样的脚本即可。
-4. 歌单保存到本地的.txt文件中。
-注意：网易云音乐歌单只允许加载1000首歌曲。
+3. 下载最新的Python3. <a href="https://www.python.org/downloads/">官网下载</a>
 
+4. 安装 urllib3. 以下两个命令二选一:
+```shell
+pip install urllib3
+# Or
+python3 -m pip install urllib3
+```
+5. 打开 python3.py. 把你的歌单ID替换120932413这一串数字.不要删掉前面的"playlistId = "。
+```python
+#Replace 120932413 with your own playlist id.
+playlistId = 120932413 #### Put Your 9 digits playlist id here
+#Don't delete the "playlistId = " part
+```
+6. 打开当前目录下的 "你的歌单名.txt". (比如：XXX的歌单.txt)
 
+7. 复制txt内容， 打开 [this site](http://spotlistr.herokuapp.com/#/search/textbox). 粘贴然后生产sportify歌单。
 
-# 其他教程
-
-## 如何将Spotify歌单导入网易云音乐？
-关于这一点，虽然网上已经有不少方法，但是大多还需要自己手动更改不少东西，总体来说十分麻烦。之前在简书上找到的[方法](http://www.jianshu.com/p/21bafe882455)也已经失效了。但原理一般都是利用网易提供的导入酷狗歌单（.KGL）文件进行导入，依葫芦画瓢，写了个很小的程序，具体的操作如下：
-
-###### 步骤
-
-1. 进入[这个页面](https://rawgit.com/watsonbox/exportify/master/exportify.html)，以.csv格式导出你需要导入到网易云音乐的歌单。
-2. 从[这里](https://github.com/bjason/Convert-.CSV-to-.kgl)下载[csvToKgl.py](https://github.com/bjason/Convert-.CSV-to-.kgl/blob/master/csvToKgl.py)文件，请确保电脑上已经正确安装Python。随后，将文件中的*directory*变量改为你存放.csv的目录。
-3. 运行csvToKgl.py，得到所有的.kgl文件。
-4. 进入[导入酷狗歌单页面](http://music.163.com/#/import/kugou)依次上传.kgl文件。
-
-###### 优点
-
-* 可以同时转换多个歌单
-
-###### 可能遇到的问题
-
-* 当歌单中存在过多网易未收录的歌曲，可能会导致上传失败。
-
-## 如何将网易云音乐歌单导入Spotify？
-网上似乎没有太多关于这个需求的解决方法啊，我找到的[唯一一个](https://sspai.com/post/36542)是利用网易提供的 API 得到歌单列表的JSON文件，再使用 workflow + IFTTT 曲线救国的方法，不仅不直观，而且要在手机上多次下载软件、多次授权之后才能进行操作，我跟着原文的方式尝试了一遍之后，依然没有在spotify中看到导入的歌单……所以被逼无奈才又写了几行代码实现的。(可能是滞后的原因，第二天早上看到了添加的歌单)
-
-###### 步骤
-
-1. 得到歌单ID：从浏览器进入到你的歌单，复制地址栏中"music.163.com/#/playlist?id="后面的数字。
-2. 进入到[这个页面](https://github.com/bjason/163MusicToSpotify)下载相应的Python文件，请确保电脑上已经正确安装Python。如果电脑上是Python2，请下载Python2.py，否则下载Python3.py。随后，将文件中的*playlistId*变量改为你刚刚获得的歌单ID。
-3. 运行t.py得到一个.txt文件。
-4. 打开[这个网站](http://spotlistr.herokuapp.com/#/search/textbox)并粘贴.txt中的全部内容，等待其自动识别并创建歌单。
-
-###### 优点
-* 相比[小众软件的方法](https://sspai.com/post/36542)简单、成功率高
-
-###### 可能遇到的问题
-
-* 网易云API只返回歌单中最多1000首歌曲的信息。
-* 由于版权原因，部分歌曲spotify不能添加。
+Note: the API 163 provided only enable me to retrive 1000 songs in your playlist. 
