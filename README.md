@@ -24,9 +24,15 @@ python3 -m pip install urllib3
 playlistId = 120932413 #### Put Your 9 digits playlist id here
 #Don't delete the "playlistId = " part
 ```
-6. Open the .txt file named with "YourPlayListName.txt".
 
-7. Copy what's in the text file and open [this site](http://spotlistr.herokuapp.com/#/search/textbox). Paste the list and let it create sportify playlist for you
+6. Run:
+```shell
+python3 python3.py
+```
+
+7. Open the .txt file named with "YourPlayListName.txt".
+
+8. Copy what's in the text file and open [this site](http://spotlistr.herokuapp.com/#/search/textbox). Paste the list and let it create sportify playlist for you
 
 Note: the API 163 provided only enable me to retrive 1000 songs in your playlist. 
 
@@ -50,17 +56,22 @@ pip install urllib3
 # Or
 python3 -m pip install urllib3
 ```
-5. 打开 python3.py. 把你的歌单ID替换120932413这一串数字.不要删掉前面的"playlistId = "。
+5. 打开 python3.py. 把你的歌单ID替换120932413这一串数字.不要删掉前面的"playlistId = "。保存退出
 ```python
 #Replace 120932413 with your own playlist id.
 playlistId = 120932413 #### Put Your 9 digits playlist id here
 #Don't delete the "playlistId = " part
 ```
-6. 打开当前目录下的 "你的歌单名.txt". (比如：XXX的歌单.txt)
+6. 执行以下命令:
+```shell
+python3 python3.py
+```
 
-7. 复制txt内容， 打开 [this site](http://spotlistr.herokuapp.com/#/search/textbox). 粘贴然后生产sportify歌单。
+7. 打开当前目录下的 "你的歌单名.txt". (比如：XXX的歌单.txt)
 
-8. 大概能有7成多的成功率（取决于歌曲类型）。
+8. 复制txt内容， 打开 [this site](http://spotlistr.herokuapp.com/#/search/textbox). 粘贴然后生产sportify歌单。
+
+9. 大概能有7成多的成功率（取决于歌曲类型）。
 
 Note: the API 163 provided only enable me to retrive 1000 songs in your playlist. 
 
