@@ -14,9 +14,13 @@ To achieve this goal, following the steps as follow:
 
 4. Install the library urllib3. Normally you can do either one of the following:
 ```shell
-pip install urllib3
+pip3 install urllib3
+pip3 install pycryptodomex
+pip3 install threadpool
 # Or
 python3 -m pip install urllib3
+python3 -m pip install pycryptodomex
+python3 -m pip install threadpool
 ```
 5. Open the file python3.py. Put Your playlist ID and replace the original playlist id there.
 ```python
