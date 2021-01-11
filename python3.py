@@ -22,7 +22,7 @@ playlist = cloudmusic.getPlaylist(playlistId)
 
 output = []
 for music in playlist:
-	output.append(music.name + "-" + ",".join(music.artist) + "\n")
+	output.append(music.name + "-" + ",".join(music.artist))
 
 # # Your code where you can use urlopen
 # tracks = data["result"]["tracks"]
@@ -35,6 +35,6 @@ for music in playlist:
 # playlistName = data["result"]["name"]
 
 with open(str(playlistId)+'.lst', 'w',encoding='utf-8') as file:
-	file.write(output)
+	file.write("\n".join(output))
 
 print("Tracks Saved To Current Directory With Name: {}.lst".format(playlistId))
