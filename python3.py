@@ -1,6 +1,6 @@
 import json
 import sys, io
-import cloudmusic
+from cloudmusic import cloudmusic
 import urllib3
 
 #Export Your NetEase Cloud Music Playlist To Sporify (From NetEase Cloud Music To Sportify!!!)
