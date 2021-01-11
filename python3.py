@@ -34,7 +34,7 @@ for music in playlist:
 # 	output += trackName + ' - ' + artist + '\n'
 # playlistName = data["result"]["name"]
 
-with open(playlistId+'.lst', 'w',encoding='utf-8') as file:
+with open(str(playlistId)+'.lst', 'w',encoding='utf-8') as file:
 	file.write(output)
 
 print("Tracks Saved To Current Directory With Name: {}.lst".format(playlistId))
