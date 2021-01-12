@@ -1,5 +1,12 @@
-# NetEasePlaylistToSportify
+# Update On 01/13/2021 # 
+This repository is outdated and not longer maintained. Please refer to other repositories that are well-maintained.
+
+Other repositories:
+(cloudmusic)[https://github.com/p697/cloudmusic]
+
+# NetEasePlaylistToSportify (Outdated)
 This tiny program enables you to download your favorite NetEase Cloud music playlists and export them to sportify.
+
 ## Author
 Alex Liu
 ### Originally From
